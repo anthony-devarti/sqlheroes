@@ -52,19 +52,25 @@ from add import add_hero
 ############################################################################################################
 
 def initialize():
-    instruction = input('Instructions\n What do you want to do?\n Find: Type a Hero\'s name to learn more about them \n Create: Make up your own hero.')
+    instruction = input('Instructions:\n What do you want to do?\n Find: Type a Hero\'s name to learn more about them \n Create: Make up your own hero.\n')
     command = instruction
     if command == 'Find':
         print('What Hero are you looking for? ')
         x=input()
         find_hero(x)
     elif command == 'Create' or 'create':
-        print('Tell me about your hero! \n What\'s their name? ')
+        print('Tell me about your hero!\n What\'s their name?\n')
         user_name=input()
-        print('That\'s a great name!  What would they say about themselves?')
+        print('That\'s a great name!  What would they say about themselves?\n')
         user_about=input()
-        print('I bet they would say that.  What\'s their bio?')
+        print('I bet they would say that.  What\'s their bio?\n')
         user_bio=input()
         add_hero(user_name, user_about, user_bio)
+    elif command == 'Destroy':
+        user_delete=input('What hero do you want to wipe out of existence?\n')
+        delete_hero(user_delete)
+    else:
+        print('Huh?  I don\'t understand.  Try saying something else')
+        initialize()
         
 initialize()

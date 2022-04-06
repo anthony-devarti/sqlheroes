@@ -19,4 +19,4 @@ def add_hero(hero, about, bio):
     add=execute_query(add_a_hero)
     print('Hero added')
 
-add_hero('hero2', 'about', 'bio')
+# add_hero('hero2', 'about', 'bio')
