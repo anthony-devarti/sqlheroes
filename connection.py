@@ -26,4 +26,4 @@ def execute_query(query):
         print("Query executed successfully")
         return cursor
     except Error as e:
-        print(f"The error '{e}' occurred")
+        print(f"The error '{e}' occurred or the hero name is already taken")
