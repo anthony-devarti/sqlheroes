@@ -10,8 +10,7 @@ def delete_hero(hero):
     DELETE FROM heroes
     WHERE name='{}'
     """.format(hero)
-    confirm_message=print('Are you sure you want to delete {}? y/n\n').format(name)
-    confirm = input(confirm_message)
+    confirm = input('Are you sure you want to delete this hero? y/n\n ')
     if confirm == 'y':
         delete=execute_query(delete_a_hero)
         print('Gone forever!')

@@ -11,7 +11,7 @@ from connection import execute_query
 
 #get the 3 fields to dynamically fill :done:
 
-#get the fields filled by input that is passed in via a few questions.
+#get the fields filled by input that is passed in via a few questions. :done:
 
 #######################
 ## Adding a New Hero ##
@@ -22,7 +22,7 @@ def add_hero(hero, about, bio):
     INSERT INTO heroes (name, about_me, biography)
     VALUES ('{}', '{}', '{}')
     """.format(hero, about, bio)
-    add=execute_query(add_a_hero)
+    execute_query(add_a_hero)
     print('Hero added')
 
 # add_hero('hero2', 'about', 'bio')

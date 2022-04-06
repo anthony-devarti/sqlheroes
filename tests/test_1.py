@@ -1,4 +1,7 @@
 import pytest
+#come back to this later
+# from queries.select import hereoes_select, new
+
 ###something is going wrong here and I cannot figure out what it is.  Bring up as a blocker
 # from demo import find_hero
 
