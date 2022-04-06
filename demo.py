@@ -2,6 +2,7 @@
 from connection import execute_query
 from find import find_hero
 from add import add_hero
+from delete import delete_hero
 
 # select_heroes = """
 #     SELECT * FROM heroes
@@ -52,25 +53,21 @@ from add import add_hero
 ############################################################################################################
 
 def initialize():
-    instruction = input('Instructions:\n What do you want to do?\n Find: Type a Hero\'s name to learn more about them \n Create: Make up your own hero.\n')
-    command = instruction
-    if command == 'Find':
-        print('What Hero are you looking for? ')
-        x=input()
-        find_hero(x)
-    elif command == 'Create' or 'create':
-        print('Tell me about your hero!\n What\'s their name?\n')
-        user_name=input()
-        print('That\'s a great name!  What would they say about themselves?\n')
-        user_about=input()
-        print('I bet they would say that.  What\'s their bio?\n')
-        user_bio=input()
+    instruction = input('What do you want to do?\nFind: Type a Hero\'s name to learn more about them \nCreate: Make up your own hero.\nDestroy: Delete a hero\n')
+    command = instruction.lower()
+    if command == 'find':
+        user_search=input('What hero are you looking for?\n')
+        find_hero(user_search)
+    elif command == 'create':
+        user_name=input('Tell me about your hero!\nWhat\'s their name?\n')
+        user_about=input('That\'s a great name!  What would they say about themselves?\n')
+        user_bio=input('I bet they would say that.  What\'s their bio?\n')
         add_hero(user_name, user_about, user_bio)
-    elif command == 'Destroy':
+    elif command == 'destroy':
         user_delete=input('What hero do you want to wipe out of existence?\n')
         delete_hero(user_delete)
     else:
-        print('Huh?  I don\'t understand.  Try saying something else')
-        initialize()
+        print('\nHuh?  I don\'t understand.  Try saying something else\n')
+    initialize()
         
 initialize()
