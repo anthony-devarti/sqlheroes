@@ -48,6 +48,8 @@ def initialize():
         target_hero=input('What hero do you want to change?\n')
         target_power=input('What new power should they have?\n')
         change_ability(target_hero, target_power)
+    elif command == 'relationships':
+        hero_1, hero_2=input('Type in 2 hero names. Make sure to separate them with ').split('+', maxsplit)
     else:
         print('\nHuh?  I don\'t understand.  Try saying something else\n')
     initialize()
