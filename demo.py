@@ -14,7 +14,7 @@ from change import add_ability
 # """
 
 ############################################################################################################
-## The whole program should run inside of this function, and allow users to type in what they want to do" ##
+## The whole program should run inside of this function, and allow users to type in what they want to do  ##
 ############################################################################################################
 
 def initialize():
@@ -31,7 +31,7 @@ def initialize():
         search_type=input("""
         \nName: Search by name.
         \nAbility: Search by ability.
-        \n""")
+        \n""").lower()
         if search_type == 'name':
             user_search=input('What hero are you looking for?\n')
             find_hero(user_search)
@@ -50,10 +50,10 @@ def initialize():
         user_delete=input('What hero do you want to wipe out of existence?\n')
         delete_hero(user_delete)
         ##replaced this with add instead, since replacing the first power with another one is a pretty useless function.
-    # elif command == 'change':
-    #     target_hero=input('What hero do you want to change?\n')
-    #     target_power=input('What new power should they have?\n')
-    #     change_ability(target_hero, target_power)
+    elif command == 'change':
+        target_hero=input('What hero do you want to change?\n')
+        target_power=input('What new power should they have?\n')
+        change_ability(target_hero, target_power)
     elif command == 'add':
         target_hero=input('What hero do you want to change?\n')
         new_ability=input('What\'s the new power they want?\n')

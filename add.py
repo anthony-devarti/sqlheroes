@@ -18,11 +18,10 @@ from connection import execute_query
 #######################
 
 def add_hero(hero, about, bio):
-    add_a_hero="""
+    execute_query("""
     INSERT INTO heroes (name, about_me, biography)
-    VALUES ('{}', '{}', '{}')
-    """.format(hero, about, bio)
-    execute_query(add_a_hero)
+    VALUES (%s, %s, %s)
+    """, (hero, about, bio))
     print('Hero added')
 
 # add_hero('hero2', 'about', 'bio')

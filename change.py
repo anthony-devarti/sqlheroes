@@ -11,61 +11,56 @@ from find import find_hero
 
 def change_ability(hero, new_ability):
     # find the id of the hero we are trying to change
-    find_id="""
+    hero_id=execute_query("""
     SELECT id
     FROM heroes
-    WHERE name='{}'
-    """.format(hero)
-    hero_id=execute_query(find_id).fetchone()[0]
+    WHERE name=%s
+    """, (hero, )).fetchone()[0]
     # print(hero_id)
     #then, find the ability id of the ability you want to add
-    find_new_ability_id="""
+    ability_id=execute_query("""
     SELECT *
     FROM ability_types
-    WHERE name='{}'
-    """.format(new_ability)
+    WHERE name=%s
+    """(new_ability, )).fetchone()[0]
     #something funky is going on here.  it doesn't want to spit out a number for this
     #it seems like my change has affected the abilities table and replaced frost breath with flying.
     #I simplified this chunk down to only finding the id of the incoming ability
-    ability_id=execute_query(find_new_ability_id).fetchone()[0]
     # print(ability_id)
     #now, to add the ability id to the right cell to make it so the hero has it in their repertoire
-    add_ability="""
+    add_ability=execute_query("""
     UPDATE abilities
-    SET ability_type_id ={} 
-    WHERE hero_id={}
+    SET ability_type_id =%s
+    WHERE hero_id=%s
     LIMIT 1
-    """.format(ability_id, hero_id)
+    """, (hero_id,))
     execute_query(add_ability)
 
 # change_ability('Chill Woman', 'Frost Breath')
 
 def add_ability(hero, new_ability):
-    find_id="""
+    hero_id=execute_query("""
     SELECT id
     FROM heroes
-    WHERE name='{}'
-    """.format(hero)
-    hero_id=execute_query(find_id).fetchone()[0]
+    WHERE name=%s
+    """, (hero, )).fetchone()[0]
     # print(hero_id)
     #then, find the ability id of the ability you want to add
-    find_new_ability_id="""
+    ability_id=execute_query("""
     SELECT *
     FROM ability_types
-    WHERE name='{}'
-    """.format(new_ability)
-    ability_id=execute_query(find_new_ability_id).fetchone()[0]
-    add="""
+    WHERE name=%s
+    """, (new_ability, )).fetchone()[0]
+    add=execute_query("""
     INSERT INTO abilities (hero_id, ability_type_id)
-    VALUES ('{}', '{}')
-    """.format(hero_id, ability_id)
-    execute_query(add)
+    VALUES (%s, %s)
+    """, (ability_id, ))
 
 # add_ability('Chill Woman', 'Flying')
 
 
 def define_relationship(hero_a, hero_b):
-    find_ship="""
+    status=execute_query("""
     SELECT  heroes.name AS hero1, relationship_types.name AS status, h2.name AS hero2
     FROM heroes
     JOIN relationships
@@ -74,9 +69,8 @@ def define_relationship(hero_a, hero_b):
     ON h2.id = relationships.hero2_id
     JOIN relationship_types
     ON relationship_types.id=relationships.relationship_type_id
-    WHERE heroes.name='{}' AND h2.name='{}'
-    """.format(hero_a, hero_b)
-    status = execute_query(find_ship).fetchone()
+    WHERE heroes.name=%s AND h2.name=%s
+    """, (hero_a, hero_b, )).fetchone()
     if status==None:
         print("""\
         ????????????J?????????????????J????????????????????????????????????????????????????????77?7?????7?77

@@ -8,11 +8,11 @@ def delete_hero(hero):
     name = hero
     delete_a_hero="""
     DELETE FROM heroes
-    WHERE name='{}'
-    """.format(hero)
+    WHERE name=%s
+    """
     confirm = input('Are you sure you want to delete this hero? y/n\n ')
     if confirm == 'y':
-        delete=execute_query(delete_a_hero)
+        delete=execute_query(delete_a_hero, (hero, ))
         print(
 """\
               .ed''' ""'$$$$be.
