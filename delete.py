@@ -14,7 +14,7 @@ def delete_hero(hero):
     if confirm == 'y':
         delete=execute_query(delete_a_hero, (hero, ))
         print(
-"""\
+          """\
               .ed''' ""'$$$$be.
              -"           ^""**$$$e.
            ."                   '$$$c
@@ -40,7 +40,7 @@ def delete_hero(hero):
                   ""'*$$$$$$$"
 
         They're gone forever.
-"""
+        """
         )
     else:
         print('They\'ll live...\n ...for now...')
