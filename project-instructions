@@ -1,0 +1,88 @@
+https://docs.google.com/document/d/1d1kgQze6naR9KgyI6bJaDyN5SypjmtKphaPjxLhjCNI/edit#heading=h.ifjyqg185a8p
+
+
+Description
+Create the backend for Facebook for Superheroes: a website API that helps superheroes stay in touch with their friends and keep track of supervillains.
+For this project, we will be using Python 3 and PostgreSQL.
+This project does not focus on the front end; you are creating an API. You will demo your CRUD operations with a python script and passing test cases through Pytest.
+MVP
+By default, the app should perform full CRUD operations (at least one of each Create, Read, Update, Delete) on the supplied SQL Database file.
+Wireframes
+See these Facebook wireframes for ideas of what API methods you can create.
+Tech Stack
+Python 3
+PostgreSQL
+PyTest
+Process
+Setup
+Plan out and pseudocode your project - see example kanban
+Create GitHub repo (either online or locally), for example, my-app
+Create necessary files for application in VS Code
+Save all and create your first commit to main, then switch to a dev branch
+Application File Structure
+repo/
+    tests/
+        queries.py
+    __init__.py - required for modules in python
+    .gitpod.yml - gitpod settings for devops
+    connection.py - the file for connecting to a DB
+    docker-compose.yml - devops file (don’t edit)
+    demo.py - the file that will be executed on demo day
+    superheroes.sql - supplied SQL Database file
+    README.md - important information, including the documentation of your
+                available CRUD operations
+    .gitignore - a file that omits any directory/file from being tracked
+
+
+
+
+Additional pages will be relative to the index.py file.
+It is okay if your project has more files and directories, but you at least need the ones listed above.
+Develop
+Create a dev branch to commit your code to
+Add content and elements to your website
+View changes and test locally
+Save often, and commit to your development branch on GitHub when important changes happen
+Push your commits to GitHub remote
+For bug fixes, refactored code, and feature branches, you must create a branch off of dev onto a new-feature branch and create a Pull Request into the dev branch when complete.
+Deploy
+Create a Pull Request from dev into master
+Confirm code is up to date and works correctly
+Python 3 files do not work on GitHub Pages, so you will present your finished API locally
+Post your completed repo in the Operations Slack Channel
+Requirements
+This project does not focus on styling, it is ok if your app does not look polished; we are focusing on functionality.
+To complete the assignment, you must complete the following:
+Create a Connection to a gitpod Database using Python 3 and view the database (using pgAdmin)
+PostgreSQL: Username “postgres” / Password “postgres”
+pgAdmin: Username “bootcamp@awesomeinc.org” / Password “awesome”
+The supplied superheroes.sql Database file contains create table and insert statements to get you started. (Do not modify the SQL file directly. Use CRUD operations to achieve CRUD)
+Decide on a minimum of four CRUD operations you wish to implement (at least one operation for Create, Read, Update, & Delete) - document these in your README.md
+Tests should be written as if you were doing Test Driven Development (TDD) with a partner for each of the four operations. For each additional operation, tests should be written to accompany the new code.
+Raise proper errors for defensive programming.
+
+Additional Requirements
+This is completely a backend project. There will be no visual elements to it.
+Tests should all pass and demo.py file should execute from start to finish.
+
+
+Stretch Goals
+Write and evaluate test cases to prove a hero…
+Can have mutual friends
+Can add new friends
+Can have mutual enemies
+Can add new enemies
+Can add likes
+Can add dislikes
+Can have multiple hero abilities
+If you finish early
+Add info to your project’s README.md README.md Best Practices
+Share links and resources from this week to the Help slack channel.
+Additional Resources
+Ask questions 
+Github Process for bootcamp
+Learn more about Good GitHub Practices
+Python 3.net
+For more information about SQL and Python 3, see these articles:
+W3 Python 3
+W3 SQL
